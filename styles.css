@@ -1,0 +1,210 @@
+:root {
+  --bgcolor: #000;
+  --sun-color: yellow;
+  --sun-shadow: rgba(255, 255, 0, 0.5);
+  --mercury-size: 20px;
+  --venus-size: 34px;
+  --earth-size: 35px;
+  --mars-size: 23px;
+  --jupiter-size: 65px;
+  --saturn-size: 57px;
+  --uranus-size: 30px;
+  --neptune-size: 29px;
+  --mercury-orbit-size: 200px;
+  --venus-orbit-size: 260px;
+  --earth-orbit-size: 330px;
+  --mars-orbit-size: 380px;
+  --jupiter-orbit-size: 480px;
+  --saturn-orbit-size: 580px;
+  --uranus-orbit-size: 680px;
+  --neptune-orbit-size: 780px;
+  --mercury-color: #b0b0b0;
+  --venus-color: #ff9933;
+  --earth-color: #1e90ff;
+  --mars-color: #ff4500;
+  --jupiter-color: #d2b48c;
+  --saturn-color: #f0e68c;
+  --uranus-color: #afeeee;
+  --neptune-color: #1b1ba7;
+  --mercury-rotation-time: 5s;
+  --venus-rotation-time: 8s;
+  --earth-rotation-time: 10s;
+  --mars-rotation-time: 19s;
+  --jupiter-rotation-time: 30s;
+  --saturn-rotation-time: 50s;
+  --uranus-rotation-time: 90s;
+  --neptune-rotation-time: 120s;
+}
+
+body {
+  background: var(--bgcolor);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+}
+
+.solar-system {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+  animation: animate-system 20s infinite linear;
+}
+
+.sun {
+  width: 100px;
+  height: 100px;
+  background-color: var(--sun-color);
+  border-radius: 50%;
+  box-shadow: 0 0 50px 20px var(--sun-shadow);
+  position: relative;
+}
+
+.orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  animation: rotate linear infinite;
+}
+
+.planet {
+  border-radius: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+}
+
+.mer-orbit {
+  width: var(--mercury-orbit-size);
+  height: var(--mercury-orbit-size);
+  animation-duration: var(--mercury-rotation-time);
+}
+
+.mercury {
+  height: var(--mercury-size);
+  width: var(--mercury-size);
+  background-color: var(--mercury-color);
+  top: -5%;
+  left: 50%;
+}
+
+.ven-orbit {
+  width: var(--venus-orbit-size);
+  height: var(--venus-orbit-size);
+  animation-duration: var(--venus-rotation-time);
+}
+
+.venus {
+  height: var(--venus-size);
+  width: var(--venus-size);
+  background-color: var(--venus-color);
+  top: -3%;
+  left: 70%;
+}
+
+.ear-orbit {
+  width: var(--earth-orbit-size);
+  height: var(--earth-orbit-size);
+  animation-duration: var(--earth-rotation-time);
+}
+
+.earth {
+  height: var(--earth-size);
+  width: var(--earth-size);
+  background-color: var(--earth-color);
+  top: 15%;
+  left: 10%;
+}
+
+.mar-orbit {
+  width: var(--mars-orbit-size);
+  height: var(--mars-orbit-size);
+  animation-duration: var(--mars-rotation-time);
+}
+
+.mars {
+  height: var(--mars-size);
+  width: var(--mars-size);
+  background-color: var(--mars-color);
+  top: 55%;
+  left: 0%;
+}
+
+.jup-orbit {
+  width: var(--jupiter-orbit-size);
+  height: var(--jupiter-orbit-size);
+  animation-duration: var(--jupiter-rotation-time);
+}
+
+.jupiter {
+  height: var(--jupiter-size);
+  width: var(--jupiter-size);
+  background-color: var(--jupiter-color);
+  top: 45%;
+  left: 99%;
+}
+
+.sat-orbit {
+  width: var(--saturn-orbit-size);
+  height: var(--saturn-orbit-size);
+  animation-duration: var(--saturn-rotation-time);
+}
+
+.saturn {
+  height: var(--saturn-size);
+  width: var(--saturn-size);
+  background-color: var(--saturn-color);
+  top: -5%;
+  left: 50%;
+}
+
+.ura-orbit {
+  width: var(--uranus-orbit-size);
+  height: var(--uranus-orbit-size);
+  animation-duration: var(--uranus-rotation-time);
+}
+
+.uranus {
+  height: var(--uranus-size);
+  width: var(--uranus-size);
+  background-color: var(--uranus-color);
+  top: 93%;
+  left: 29%;
+}
+
+.nep-orbit {
+  width: var(--neptune-orbit-size);
+  height: var(--neptune-orbit-size);
+  animation-duration: var(--neptune-rotation-time);
+}
+
+.neptune {
+  height: var(--neptune-size);
+  width: var(--neptune-size);
+  background-color: var(--neptune-color);
+  top: 60%;
+  left: 1%;
+}
+
+@keyframes rotate {
+  to {
+    transform: translate(-50%, -50%) rotate(1turn);
+  }
+}
+
+@keyframes animate-system {
+  0%,
+  100% {
+    transform: rotateX(15deg) rotateY(-25deg); /* Slight tilt at the start */
+  }
+  50% {
+    transform: rotateX(25deg) rotateY(25deg); /* Full rotation around Y-axis */
+  }
+}
